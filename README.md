@@ -22,8 +22,18 @@ Step 2:
 Run ```installer.sh 2```, which will install the latest DXVK. DO NOT DO THIS BEFORE STEP 1! DXVK for some reason breaks the login window.
 
 Step 3:
-Run ```installer.sh 3```, which actually just launches the Fusion launcher again, but now stuff should... show up? All windows work for me. At this point I suggest clicking on your name and going into preferences and setting the graphics driver to directx9. Restart the program for this to have an effect.
+Run ```installer.sh 3```, which actually just launches the Fusion launcher again, but now stuff should... show up? All windows work for me. At this point I **STRONGLY** suggest clicking on your name and going into preferences and setting the graphics driver to **directx9**. Restart the program for this to have an effect.
 
+Step 4:
+After setting the graphics driver to directx9, close Fusion, make sure any lingering wine processes are killed and run ```installer.sh 2``` to uninstall DXVK (yes. for some reason even though the graphics are switched to DX9 some stuff tries to run in DX11 if DXVK is present) & make sure the following entries are removed in winecfg:
+```
+d3d10, d3d10_1, d3d10core, d3d11, dxgi
+```
+(note that you shouldn't have to do this, as dxvk should takre care of this while uninstalling)
+
+Now everything should work! What you have in the end is effectively a prefix with vcrun2017 installed, that's about it!
+
+DXVK/D3D11 are only needed in order to set Fusion 360 to directx9.
 
 # Notes:
 
