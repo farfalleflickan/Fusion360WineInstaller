@@ -18,7 +18,7 @@ Watch this folder as streamer.exe will hang and just be there once done, there a
 Step 2:
 Run ```installer.sh 2```, which will start up winecfg. Find the d3d11 entry in libraries and remove it (this is a must as it will not launch otherwise, it will just crash. DO NOT USE DXVK! In my experience it doesn't work). If you are on i3wm you might want to setup a virtual desktop as Fusion will leave sticky windows on every workspace otherwise. 
 
-The Fusion Launcher will start once you close winecfg and should prompt you to login. Put in your password & stuff and wait a minute or so. The terminal output should start showing messages along the lines of ```(Restarting in 60 seconds)``` (too lazy to redo an install to check the exact message), at this point kill all wine processes once again.
+The Fusion Launcher will start once you close winecfg and should prompt you to login. Put in your password & stuff and wait a minute or so. The terminal output should start showing messages along the lines of ```...retrying (60 sec)```, at this point kill all wine processes once again.
 
 Step 3:
 Run ```installer.sh 3```, which will install latest dxvk in the prefix. Once it's done move on to step 4.
