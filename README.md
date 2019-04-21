@@ -44,8 +44,6 @@ This is what worked for me, I don't/can't guarantee that it will work for you. I
 
 # OLD STEPS BELOW (Leaving them for posterity or whatever)
 
----------------------------------------------------------------
-
 
 Gonna write this up better but basically...
 
