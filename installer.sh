@@ -22,6 +22,9 @@ case "${1}" in #switch case for the program's argument
         wine ./installer/streamer.exe
         ;;        
     "2")
+        echo "Remove the \"d3d11\" entry under libraries"
+        export WINEPREFIX=$(pwd);
+        winecfg;
         if [ ! -d dxvkInstaller ]; then
             curl -s https://api.github.com/repos/doitsujin/dxvk/releases/latest | grep ".tar.gz" | cut -d : -f 2,3 | tr -d \" | wget -qi -
             tar -xvf dxvk-*.tar.gz
@@ -30,6 +33,10 @@ case "${1}" in #switch case for the program's argument
             dxvkInstaller/setup_dxvk.sh install
             #rm -rf dxvkInstaller
         fi
+        echo "DXVK Installed!";
+        ;;
+    "3")
+        export WINEPREFIX=$(pwd);
         wine $WINEPREFIX"/drive_c/users/"$USER"/Local Settings/Application Data/Autodesk/webdeploy/production/6a0c9611291d45bb9226980209917c3d/FusionLauncher.exe";
         ;;
 esac
