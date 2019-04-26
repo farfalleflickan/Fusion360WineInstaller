@@ -31,7 +31,9 @@ If that STILL doesn't give you the login window... Try removing the
 ```
 $WINEPREFIX"/drive_c/users/"$USER"/Local Settings/Application Data/Autodesk/
 ```
-folder and re-doing this step.
+folder and re-doing this step. 
+Last solution that seems to work for me, at least (but I also know these are needed by other people in order to work... might be a dependecies thing? Like having optional wine packages installed...? Not sure).
+Delete the folder of your prefix and restart from zero, remove ```corefonts winhttp wininet``` from the installer script and proceed as usual.
 
 Step 2:
 Run ```installer.sh 2```, which will install the latest DXVK. DO NOT DO THIS BEFORE STEP 1! DXVK for some reason breaks the login window.
