@@ -16,7 +16,22 @@ run ```installer.sh 1```, it will automatically set up the directory as a prefix
 $WINEPREFIX"/drive_c/users/"$USER"/Local Settings/Application Data/Autodesk/webdeploy/production/
 ```
 
-Let it run, after a while the Autodesk Fusion 360 logo should re-appear, along with a new window that should ask for your login credentials. Log in and let it run, a pop up should appear with ```Failed to create graphics renderer...```, press "Ok" and let it run for a while, until ```...retrying (60 sec)``` appears in the terminal (or if nothing happens at all), at this point close the terminal and eventually kill all & any wine process.
+Let it run, after a while the Autodesk Fusion 360 logo should re-appear, along with a new window that should ask for your login credentials. Log in and let it run, a pop up should appear with ```Failed to create graphics renderer...```, press "Ok" and let it run for a while, until ```...retrying (60 sec)``` appears in the terminal (or if nothing happens at all), at this point close the terminal and eventually kill all & any wine process. 
+THIS STEP SEEMS TO BREAK RANDOMLY. Haven't quite figured it out. Sometimes it works, sometimes it doesn't. 
+If the program just hangs, check if 
+```
+$WINEPREFIX"/drive_c/users/"$USER"/Local Settings/Application Data/Autodesk/webdeploy/production/
+```
+is populated. There should be 2 folders. One of them will contain just 3 files, when this happens it's done. At this point kill the process & anything wine related.
+
+Now you should enter the folder with just the 3 files (```FusionLauncher.exe```, an icon and a configuration file) & launch ```FusionLauncher.exe```manually, a login window should/might pop up).
+
+If that STILL doesn't give you the login window... Try removing the
+
+```
+$WINEPREFIX"/drive_c/users/"$USER"/Local Settings/Application Data/Autodesk/
+```
+folder and re-doing this step.
 
 Step 2:
 Run ```installer.sh 2```, which will install the latest DXVK. DO NOT DO THIS BEFORE STEP 1! DXVK for some reason breaks the login window.
