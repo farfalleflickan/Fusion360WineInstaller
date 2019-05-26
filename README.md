@@ -61,7 +61,7 @@ DXVK/D3D11 are only needed in order to set Fusion 360 to directx9.
 
 * I have managed to have this working even better while doing all of the above+messing with lutris (and tkg-4.6, i believe...), for instance I actually managed to get "subscribing as a student" to work (which for the moment it doesn't, the program will just hang), but i've failed to replicate this. Will look into it more in the coming days and do a better guide/write up too...
 
-* In other places I've seen stuff like corefonts, mshttp, msxml3 & msxml6 getting installed, AFAIK this works anyways. I would probably reccomend following Lutris' wine setup [here](https://github.com/lutris/lutris/wiki/Wine-Dependencies), as I feel like that might have had something to do with it.
+* In other places I've seen stuff like `corefonts, mshttp, msxml3` & `msxml6` getting installed, AFAIK this works anyways. I would probably reccomend following Lutris' wine setup [here](https://github.com/lutris/lutris/wiki/Wine-Dependencies), as I feel like that might have had something to do with it.
 
 * Despite what other sources says (WineHQ, other GitHub Repos....) disabling d3d11 seems to just break stuff.
 
