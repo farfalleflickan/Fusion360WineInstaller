@@ -24,8 +24,21 @@ case "${1}" in #switch case for the program's argument
         echo "And wait until a \"production\" folder appears with 2 populated subfolders"
         echo "----------------------------------------------------------"
         export WINEPREFIX=$(pwd);
-	rm -rf $WINEPREFIX"/drive_c/users/"$USER"/Desktop"
-        mkdir $WINEPREFIX"/drive_c/users/"$USER"/Desktop"
+        
+        deskVar=$(xdg-user-dir DESKTOP) # takes care of symlink that the installer doesn't like
+        deskVar="${deskVar##*/}"
+        symPath="$WINEPREFIX""/drive_c/users/""$USER"
+        tempVar=$(mktemp)
+        tempFile=$(mktemp)
+        find -P $symPath -maxdepth 1 -type l -exec echo -n "{} -> " \; -exec readlink {} \; > $tempVar;
+        grep "$deskVar" $tempVar > $tempFile;
+        while IFS="" read -r line || [ -n "$line" ]; do
+            line=${line%% ->*}
+            echo $line
+            rm -rf "$line"
+            mkdir "$line"
+        done < $tempFile; 
+        
         wine ./installer/streamer.exe
         ;;
     "2")
