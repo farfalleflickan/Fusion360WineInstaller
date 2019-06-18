@@ -24,6 +24,8 @@ case "${1}" in #switch case for the program's argument
         echo "And wait until a \"production\" folder appears with 2 populated subfolders"
         echo "----------------------------------------------------------"
         export WINEPREFIX=$(pwd);
+	rm -rf $WINEPREFIX"/drive_c/users/"$USER"/Desktop"
+        mkdir $WINEPREFIX"/drive_c/users/"$USER"/Desktop"
         wine ./installer/streamer.exe
         ;;
     "2")
