@@ -10,7 +10,8 @@ fi
 case "${1}" in #switch case for the program's argument
     "1")
         tar -xzf installer.tar.gz;
-        winetricks corefonts winhttp wininet vcrun2017 win7;
+	winetricks corefonts vcrun2017 win7;
+        #winetricks corefonts winhttp wininet vcrun2017 win7;
         
         echo -e "\n\n"
         echo "----------------------------------------------------------"
